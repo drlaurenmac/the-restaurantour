@@ -171,7 +171,7 @@ def plot_recs(neigh_choice,cuisine_choice,price_choice,rest_dict,gj,df_clusters,
 #Create the app:
 #User selects neighborhood, cuisine, and/or price from drop-down menu
 
-#user selects options in the sidebar:
+#selection options displayed in the sidebar:
 with st.sidebar:
     st.title('The Restaurantour')
     
@@ -190,7 +190,7 @@ with st.sidebar:
         rest_dict = rest_neigh_dict    
         neigh_choice = st.selectbox('Please select a neighborhood:', [''] + sorted(list(rest_neigh_dict.keys())))
         if neigh_choice != '':
-            #add here what the neighborhood cluster tag is
+            #display the neighborhood cluster tag
             for label, neighs in clusters_label_dict.items():
                 if neigh_choice in neighs:
                     cluster_label = label
@@ -273,7 +273,7 @@ else:
 #display top 3 restaurants given user selected choices:    
 if by_neighborhood and by_cuisine and by_price:    
     if neigh_choice != '' and cuisine_choice != '' and price_choice != '':
-            plot_recs(neigh_choice,cuisine_choice,price_choice,rest_dict,gj,df_clusters,zoom_level)
+        plot_recs(neigh_choice,cuisine_choice,price_choice,rest_dict,gj,df_clusters,zoom_level)
     
 elif by_neighborhood and by_cuisine:
     if neigh_choice != '' and cuisine_choice != '':
